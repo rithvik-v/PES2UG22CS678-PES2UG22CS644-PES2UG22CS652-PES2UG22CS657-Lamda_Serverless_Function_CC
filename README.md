@@ -34,13 +34,13 @@ CI/CD: GitHub Actions
 Contributors
 👨‍💻 Team Members
 
-<SRN1> - Name1
+Yogendra Shetty
 
-<SRN2> - Name2
+Phanindra Reddy
 
-<SRN3> - Name3
+Deepak Veluru
 
-<SRN4> - Name4
+Vasireddy Rithvik
 
 Progress Tracking
 ✅ Week 1: Project Setup & Docker Integration
