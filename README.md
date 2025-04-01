@@ -9,3 +9,44 @@ Support for Python & JavaScript functions
 Virtualization using Docker + one more (Firecracker/Nanos/gVisor)
 Monitoring Dashboard for real-time execution metrics
 CI/CD pipeline for continuous integration and deployment
+
+Project Structure
+/lambda-project
+│── /backend          # API Server (FastAPI/Express)
+│── /frontend         # Web Dashboard (Streamlit/React)
+│── /docker           # Docker setup, base images
+│── /docs             # Design documents, system diagrams
+│── README.md         # Project Overview
+│── .gitignore        # Ignore unnecessary files
+│── docker-compose.yml # Docker orchestration
+
+Tech Stack
+Backend: FastAPI (Python) / Express.js (Node.js)
+
+Database: PostgreSQL / MongoDB
+
+Virtualization: Docker + Firecracker/Nanos/gVisor
+
+Frontend: Streamlit / React
+
+CI/CD: GitHub Actions
+
+Contributors
+👨‍💻 Team Members
+
+<SRN1> - Name1
+
+<SRN2> - Name2
+
+<SRN3> - Name3
+
+<SRN4> - Name4
+
+Progress Tracking
+✅ Week 1: Project Setup & Docker Integration
+
+🔲 Week 2: Second Virtualization Technology & Metrics
+
+🔲 Week 3: Frontend & Monitoring Dashboard
+
+.
