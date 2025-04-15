@@ -34,7 +34,7 @@ CI/CD: GitHub Actions
 Contributors
 👨‍💻 Team Members
 
-Yogendra Shetty
+Yogendra 
 
 Phanindra Reddy
 
