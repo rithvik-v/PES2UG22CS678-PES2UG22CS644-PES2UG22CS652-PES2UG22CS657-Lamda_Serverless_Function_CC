@@ -1,52 +1,36 @@
-# PES2UG22CS678-PES2UG22CS644-PES2UG22CS652-PES2UG22CS657-Lamda_Serverless_Function_CC
-Lambda - Serverless Function Execution Platform
-Project Overview
-This project aims to build a serverless function execution platform similar to AWS Lambda. It allows users to deploy and execute Python & JavaScript functions on demand via HTTP requests. The system will support Docker and another virtualization technology (Firecracker, Nanos, or gVisor) to optimize execution.
+# wrappy
 
-Features
-Deploy and execute functions via API
-Support for Python & JavaScript functions
-Virtualization using Docker + one more (Firecracker/Nanos/gVisor)
-Monitoring Dashboard for real-time execution metrics
-CI/CD pipeline for continuous integration and deployment
+Callback wrapping utility
 
-Project Structure
-/lambda-project
-│── /backend          # API Server (FastAPI/Express)
-│── /frontend         # Web Dashboard (Streamlit/React)
-│── /docker           # Docker setup, base images
-│── /docs             # Design documents, system diagrams
-│── README.md         # Project Overview
-│── .gitignore        # Ignore unnecessary files
-│── docker-compose.yml # Docker orchestration
+## USAGE
 
-Tech Stack
-Backend: FastAPI (Python) / Express.js (Node.js)
+```javascript
+var wrappy = require("wrappy")
 
-Database: PostgreSQL / MongoDB
+// var wrapper = wrappy(wrapperFunction)
 
-Virtualization: Docker + Firecracker/Nanos/gVisor
+// make sure a cb is called only once
+// See also: http://npm.im/once for this specific use case
+var once = wrappy(function (cb) {
+  var called = false
+  return function () {
+    if (called) return
+    called = true
+    return cb.apply(this, arguments)
+  }
+})
 
-Frontend: Streamlit / React
+function printBoo () {
+  console.log('boo')
+}
+// has some rando property
+printBoo.iAmBooPrinter = true
 
-CI/CD: GitHub Actions
+var onlyPrintOnce = once(printBoo)
 
-Contributors
-👨‍💻 Team Members
+onlyPrintOnce() // prints 'boo'
+onlyPrintOnce() // does nothing
 
-Yogendra 
-
-Phanindra Reddy
-
-Deepak Veluru
-
-Vasireddy Rithvik
-
-Progress Tracking
-✅ Week 1: Project Setup & Docker Integration
-
-🔲 Week 2: Second Virtualization Technology & Metrics
-
-🔲 Week 3: Frontend & Monitoring Dashboard
-
-.
+// random property is retained!
+assert.equal(onlyPrintOnce.iAmBooPrinter, true)
+```
