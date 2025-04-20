@@ -1,1 +1,0 @@
-def updated(): return 'Updated!'
